@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "postsCMS-UI": {
+    "writer": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/postsCMS-UI",
+            "aot": true,
+            "outputPath": "dist/writer",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,6 +51,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -58,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "postsCMS-UI:build"
+            "browserTarget": "writer:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "postsCMS-UI:build:production"
+              "browserTarget": "writer:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "postsCMS-UI:build"
+            "browserTarget": "writer:build"
           }
         },
         "test": {
@@ -106,15 +111,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "postsCMS-UI:serve"
+            "devServerTarget": "writer:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "postsCMS-UI:serve:production"
+              "devServerTarget": "writer:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "postsCMS-UI"
+    }
+  },
+  "defaultProject": "writer"
 }
